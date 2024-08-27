@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface DoctorRepository extends JpaRepository<DoctorModel, Long> {
-    @Query("SELECT d FROM Doctor d WHERE d.speciality = :speciality")
+    @Query("SELECT d FROM DoctorModel d WHERE d.speciality = :speciality")
     List<DoctorModel> findDoctorsBySpeciality(@Param("speciality") String speciality);
 }
