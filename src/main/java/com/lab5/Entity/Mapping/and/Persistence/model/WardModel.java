@@ -5,14 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ward",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"ward_number", "department_id"}))
+@Table(name = "ward")
 public class WardModel {
 
     @Id
