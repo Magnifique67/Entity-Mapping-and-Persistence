@@ -8,9 +8,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-
 @Service
 public class DoctorService {
 
@@ -25,7 +23,6 @@ public class DoctorService {
         System.out.println("Saved doctor: " + savedDoctor);
         return savedDoctor;
     }
-
 
     @Transactional(readOnly = true)
     @Cacheable(value = "doctors", key = "#id")

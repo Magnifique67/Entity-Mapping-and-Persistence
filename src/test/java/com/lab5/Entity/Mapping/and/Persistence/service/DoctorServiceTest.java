@@ -13,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@ActiveProfiles("test")  // Ensure the test profile is used
+@ActiveProfiles("test")
 public class DoctorServiceTest {
 
     @Autowired
@@ -24,7 +24,6 @@ public class DoctorServiceTest {
 
     @BeforeEach
     public void setUp() {
-        // Clear the repository before each test
         doctorRepository.deleteAll();
 
         // Seed data
@@ -49,7 +48,7 @@ public class DoctorServiceTest {
 
         DoctorModel savedDoctor = doctorService.saveDoctor(doctor);
         assertThat(savedDoctor).isNotNull();
-        assertThat(savedDoctor.getSurname()).isEqualTo("chriss");
+        assertThat(savedDoctor.getSurname()).isEqualTo("Aime");
         assertThat(savedDoctor.getFirstName()).isEqualTo("Anna");
         assertThat(savedDoctor.getAddress()).isEqualTo("456 Elm St");
         assertThat(savedDoctor.getTelephone()).isEqualTo("555-5678");
@@ -60,8 +59,8 @@ public class DoctorServiceTest {
     public void testGetDoctor() {
         DoctorModel doctor = doctorService.getDoctor(1L);
         assertThat(doctor).isNotNull();
-        assertThat(doctor.getSurname()).isEqualTo("keza");
-        assertThat(doctor.getFirstName()).isEqualTo("cute");
+        assertThat(doctor.getSurname()).isEqualTo("Smith");
+        assertThat(doctor.getFirstName()).isEqualTo("John");
         assertThat(doctor.getAddress()).isEqualTo("123 Main St");
         assertThat(doctor.getTelephone()).isEqualTo("555-1234");
         assertThat(doctor.getSpeciality()).isEqualTo("Cardiologist");
